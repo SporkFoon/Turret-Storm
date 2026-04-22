@@ -21,7 +21,7 @@ visualization.
 To clone this project:
 
 ```sh
-git clone https://github.com/<username>/Turret-Storm.git
+git clone https://github.com/SporkFoon/Turret-Storm.git
 cd Turret-Storm
 ```
 
