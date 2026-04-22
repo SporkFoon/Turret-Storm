@@ -334,8 +334,33 @@ class Game:
             hint = self.font_medium.render("Press TAB to view statistics", True, UI_TEXT)
             self.screen.blit(hint, (SCREEN_WIDTH // 2 - hint.get_width() // 2, SCREEN_HEIGHT // 2 + 10))
 
+    def _wrap_text(self, text, font, max_width):
+        # break text
+        words = text.split()
+        if not words:
+            return [""]
+        lines = []
+        cur = words[0]
+        for w in words[1:]:
+            trial = cur + " " + w
+            if font.size(trial)[0] <= max_width:
+                cur = trial
+            else:
+                lines.append(cur)
+                cur = w
+        lines.append(cur)
+        return lines
+
+    def _blit_wrapped(self, text, font, color, x, y, max_width, line_h):
+        # render text wrapped into max_width starting at (x, y)
+        for line in self._wrap_text(text, font, max_width):
+            surf = font.render(line, True, color)
+            self.screen.blit(surf, (x, y))
+            y += line_h
+        return y
+
     def _draw_ui(self):
-        """Draw the side panel and status bar"""
+        # draw the side panel and status bar
         # right panel background
         panel_x = GRID_OFFSET_X + GRID_COLS * TILE_SIZE + 16
         panel_w = SCREEN_WIDTH - panel_x - 8
@@ -345,6 +370,8 @@ class Game:
 
         y = GRID_OFFSET_Y + 12
         x = panel_x + 12
+        # usable text width inside the panel (leave a small right-margin)
+        text_w = panel_w - 24
 
         # status
         gold_text = self.font_medium.render(f"Gold: {self.gold}", True, UI_GOLD)
@@ -366,17 +393,24 @@ class Game:
         y += 28
 
         tower_keys = [("1", "arrow"), ("2", "cannon"), ("3", "ice")]
+        desc_indent = 16
+        desc_x = x + desc_indent
+        desc_w = text_w - desc_indent
         for key, ttype in tower_keys:
             config = TOWER_TYPES[ttype]
             is_selected = ttype == self.selected_tower_type
             color = UI_HIGHLIGHT if is_selected else UI_TEXT
             prefix = "> " if is_selected else "  "
-            line = self.font_small.render(f"{prefix}[{key}] {config['name']}", True, color)
+            line = self.font_small.render(
+                f"{prefix}[{key}] {config['name']}  {config['cost']}g", True, color
+            )
             self.screen.blit(line, (x, y))
             y += 20
-            cost_text = self.font_tiny.render(f"     {config['cost']}g | {config['description']}", True, LIGHT_GRAY)
-            self.screen.blit(cost_text, (x, y))
-            y += 22
+            y = self._blit_wrapped(
+                config["description"], self.font_tiny, LIGHT_GRAY,
+                desc_x, y, desc_w, line_h=16,
+            )
+            y += 4
 
         y += 10
 
