@@ -112,9 +112,9 @@ Charts and a wave-summary CSV will be written to `stats_data/analysis/`.
 ## Game Features
 
 - **Three tower types** with distinct roles:
-  - *Arrow Tower* — fast, cheap, single-target damage.
-  - *Cannon Tower* — slow fire rate but splash damage over an area.
-  - *Ice Tower* — lower damage, but slows enemies on hit.
+  - Arrow Tower — fast, cheap, single-target damage.
+  - Cannon Tower — slow fire rate but splash damage over an area.
+  - Ice Tower — lower damage, but slows enemies on hit.
 - **Four enemy types** that scale with wave number: Grunt, Scout (fast),
   Tank (high-HP), and a Boss that appears on every fifth wave from wave 10.
 - **Upgrade system** — each tower can be upgraded twice, increasing its
