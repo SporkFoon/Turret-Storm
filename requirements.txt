@@ -1,0 +1,9 @@
+# runtime dependency (game)
+pygame>=2.5
+
+# used by scripts/generate_sprites.py to generate the pixel-art assets
+Pillow>=10.0
+
+# used by data_analysis.py to analyse the exported gameplay CSVs
+pandas>=2.0
+matplotlib>=3.7
