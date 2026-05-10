@@ -49,7 +49,8 @@
     charts plus a wave-summary CSV.
   - In-game TAB-cycled statistics dashboard rendered directly in Pygame.
 
-- **Proposal:** [docs/Proposal.pdf](docs/Proposal.pdf)
+- **Proposal:** [docs/Proposal Final.pdf](docs/Proposal Final.pdf)
+- **Presentation video:** https://www.youtube.com/watch?v=Vgcz9twTQVM
 
 ---
 

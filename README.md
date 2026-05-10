@@ -3,8 +3,7 @@
 ## Project Description
 
 - **Project by:** Navin Bunthuphanich (6610545251)
-- **Course:** Computer Programming II (01219116 / 01219117) — 2026/2, Section 450
-- **Game Genre:** Tower Defense, Strategy
+- **Presentation video:** https://www.youtube.com/watch?v=Vgcz9twTQVM
 
 Turret Storm is a wave-based tower defense game built in Python with Pygame.
 The player buys and places three kinds of defensive towers on a grass grid to
