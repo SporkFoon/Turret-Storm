@@ -1,0 +1,5 @@
+id,tower_type,col,row,wave,cost,game_time
+1,arrow,1,1,0,50,19.81
+2,arrow,3,1,0,50,20.64
+3,arrow,1,2,0,50,21.65
+4,arrow,3,2,0,50,22.62

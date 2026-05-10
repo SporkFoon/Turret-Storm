@@ -1,0 +1,5 @@
+kill_id,enemy_type,killed_by,damage_dealt,wave,game_time
+1,normal,arrow,90,1,25.21
+2,normal,arrow,90,1,27.27
+3,normal,arrow,90,1,29.31
+4,normal,arrow,90,1,30.42
